@@ -536,7 +536,20 @@ local function isFullyOpen(oven)
 	return oven.IsOpen.Value == true and (oven.Door.Meter.RotVelocity.Z ^ 2) ^ .5 < .0001
 end
 
-local bcolorToSupply = {["Dark orange"] = "Sausage", ["Bright blue"] = "Pepperoni", ["Bright yellow"] = "Cheese", ["Bright red"] = "TomatoSauce", ["Dark green"] = "Dew", ["Brick yellow"] = "Dough", ["Light stone grey"] = "Box", ["Really black"] = "Dew"}
+-- Color to supply mapping (FIXED VERSION)
+local bcolorToSupply = {
+    ["Dark orange"] = "Sausage",
+    ["Navy blue"] = "Pepperoni",      -- FIXED: Was missing
+    ["Bright blue"] = "Pepperoni",
+    ["Bright yellow"] = "Cheese",
+    ["Bright red"] = "TomatoSauce",
+    ["Dark green"] = "Dew",
+    ["Brick yellow"] = "Dough",
+    ["Light stone grey"] = "Box",
+    ["Really black"] = "Dew",
+    ["Medium blue"] = "Pepperoni",    -- Extra safety
+    ["Deep blue"] = "Pepperoni"       -- Extra safety
+}
 local supplyButtons = {}
 for i, v in ipairs(workspace.SupplyButtons:GetChildren()) do
 	supplyButtons[i] = v.Unpressed
